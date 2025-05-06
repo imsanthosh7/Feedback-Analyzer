@@ -52,7 +52,7 @@ function FeedbackForm() {
             <Toaster richColors />
             <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
                 <div className='absolute top-0 left-0 py-20 px-5 md:py-8 md:mx-8'>
-                    <h1 className='text-xl md:text-2xl font-semibold'>Smart Feedback Analyzer</h1>
+                    <h1 className='text-xl md:text-2xl font-semibold'>Ai Feedback Analyzer</h1>
                 </div>
                 <div className='py-4 text-center w-96 md:w-[500px]'>
                     <h1 className='text-2xl md:text-3xl font-semibold mb-3'>We Value Your Feedback!</h1>
