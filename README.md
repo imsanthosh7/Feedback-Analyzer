@@ -1,44 +1,48 @@
-# 🧠 AI Feedback Analyzer (MERN Stack + Hugging Face API)
+# 🧠 AI Feedback Analyzer (MERN + Hugging Face)
 
-This is a full-stack MERN application that collects user feedback, analyzes its sentiment using Hugging Face's free AI model (`distilbert-base-uncased-finetuned-sst-2-english`), and alerts the admin if too many negative feedbacks are received.
+A full-stack MERN application that allows users to submit feedback and receive real-time sentiment analysis (Positive or Negative) using Hugging Face's transformer model. Built with a clean and modern UI using **ShadCN UI** and **TailwindCSS**.
 
-## 🚀 Live Preview
-[Optional: Add deployed link here]
+---
+
+## 🚀 Live Preview  
+🌐 [Add deployed link here]
 
 ---
 
 ## ✨ Features
 
-- 🔍 AI-based Sentiment Analysis (Positive or Negative)
-- 📩 Submit and save feedback
-- 📊 Admin dashboard to monitor feedback stats
-- 🚨 Automatic email alert to admin if 50+ negative feedbacks
-- 🔐 Secure API communication
+- 🤖 AI-powered sentiment detection
+- 📝 Modern feedback form with real-time classification
+- 📋 Display all submitted feedback
+- 💅 Responsive UI using **ShadCN UI** components
+- 🔐 Secure API communication using environment variables
 
 ---
 
-## 🛠️ Tech Stack
+## 🧑‍💻 Tech Stack
 
 ### Frontend:
-- ReactJS
-- Axios
+- React (Vite)
 - TailwindCSS
+- ShadCN UI
+- Axios
 
 ### Backend:
-- Node.js + Express
+- Node.js + Express.js
 - MongoDB + Mongoose
-- Nodemailer (for email alerts)
 - Hugging Face Inference API
 
 ---
 
-## 🧪 API Example
+## 🧠 AI Integration
+
+Using Hugging Face’s `distilbert-base-uncased-finetuned-sst-2-english` to analyze feedback.
 
 ```js
-// HuggingFace Sentiment Request
+// Hugging Face API Example
 const response = await axios.post(
   'https://api-inference.huggingface.co/models/distilbert-base-uncased-finetuned-sst-2-english',
-  { inputs: "The product is great!" },
+  { inputs: "The product is amazing!" },
   {
     headers: {
       Authorization: `Bearer YOUR_HUGGINGFACE_API_TOKEN`
@@ -63,13 +67,14 @@ const response = await axios.post(
 ```
 📦 Project Structure
 ```
-/client       --> ReactJS frontend
-/admin        --> ReactJS frontend
-/server       --> Node.js backend with Express
-  └─ controllers   --> authController / feedbackController
-  └─ middleware   --> authMiddleware
-  └─ models   --> Mongoose schemas
-  └─ routes   --> Feedback & admin routes
+/client         → React frontend (Vite + ShadCN UI)
+/admin         → React frontend (Vite + ShadCN UI)
+/server         → Node.js backend (Express + MongoDB)
+  ├─ controllers → Logic for handling feedback
+  ├─ models      → Mongoose schemas
+  ├─ routes      → API endpoints
+  ├─ .env        → Environment variables
+
 ```
 🧑‍💻 Local Setup
 ### 1. Clone the repo
@@ -89,8 +94,6 @@ touch .env
 PORT=5000
 MONGO_URI=your_mongodb_connection
 HUGGINGFACE_API_KEY=your_huggingface_api_key
-ADMIN_EMAIL=your_email@gmail.com
-ADMIN_PASS=your_gmail_app_password
 ```
 ### 3. Frontend Setup
 
@@ -99,3 +102,9 @@ cd ../client
 npm install
 npm run dev
 ```
+### 📸 Screenshots
+User Page
+![App Screenshot](https://github.com/user-attachments/assets/826607fe-cade-4b83-8878-dfb4e05f1381)
+
+Adimn Dashboard 
+![App Screenshot](https://github.com/user-attachments/assets/91f0730a-f442-4df7-bf37-83f28c59f423)
