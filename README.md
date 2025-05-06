@@ -5,17 +5,18 @@ A full-stack MERN application that allows users to submit feedback and receive r
 ---
 
 ## 🚀 Live Preview  
-🌐 [Add deployed link here]
+Submit Feedback: https://feedback-analyzer-client.onrender.com/
+Admin Dashboard: https://feedback-analyzer-admin.onrender.com/
 
 ---
 
 ## ✨ Features
 
-- 🤖 AI-powered sentiment detection
-- 📝 Modern feedback form with real-time classification
-- 📋 Display all submitted feedback
-- 💅 Responsive UI using **ShadCN UI** components
-- 🔐 Secure API communication using environment variables
+- 🔐 User authentication (Sign In / Sign Up with JWT + Cookies)
+- 🤖 AI-powered sentiment analysis (after feedback submission)
+- 📝 Submit and store feedback
+- 📋 Display all feedback per user
+- ✨ Responsive UI with **ShadCN UI** components
 
 ---
 
@@ -72,6 +73,7 @@ const response = await axios.post(
 /server         → Node.js backend (Express + MongoDB)
   ├─ controllers → Logic for handling feedback
   ├─ models      → Mongoose schemas
+  ├─ middleware  → authMiddleware.js (JWT verification)
   ├─ routes      → API endpoints
   ├─ .env        → Environment variables
 
@@ -108,3 +110,9 @@ User Page
 
 Adimn Dashboard 
 ![App Screenshot](https://github.com/user-attachments/assets/91f0730a-f442-4df7-bf37-83f28c59f423)
+
+SignIn Page
+![App Screenshot](https://github.com/user-attachments/assets/912427be-7349-43ba-8a23-ebdfa2aae91c)
+
+SignUp Page
+![App Screenshot](https://github.com/user-attachments/assets/ea43e499-cab9-4837-9543-2a026c4ebbdc)
