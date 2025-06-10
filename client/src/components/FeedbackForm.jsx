@@ -44,6 +44,7 @@ function FeedbackForm() {
                 setLoading(false);
             } else {
                 toast.error(data.message)
+                setLoading(false);
 
             }
 
