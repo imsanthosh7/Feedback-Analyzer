@@ -49,8 +49,10 @@ function FeedbackForm() {
             }
 
         } catch (error) {
-            setLoading(false);
             toast.error(error.message)
+            setTimeout(() => {
+                setLoading(false);
+            }, 300)
         }
 
     }
