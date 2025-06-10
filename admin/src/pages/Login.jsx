@@ -22,12 +22,15 @@ const Login = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const backendurl = import.meta.env.VITE_BACKEND_URL
 
     const handelSubmit = async (e) => {
 
         e.preventDefault();
+
+        setLoading(true);
 
         try {
 
@@ -38,8 +41,10 @@ const Login = () => {
             if (data.success) {
                 toast.success(data.message)
                 navigate('/admin')
+                setLoading(false);
             } else {
                 toast.error(data.message)
+                setLoading(false);
             }
 
         } catch (error) {
@@ -56,7 +61,7 @@ const Login = () => {
         <div className="w-screen h-screen flex items-center justify-center bg-gray-100">
             <Toaster richColors position="bottom-right" />
             <form onSubmit={handelSubmit}>
-                <Card className="w-[360px] shadow-xl border rounded-2xl">
+                <Card className="md:w-[360px] w-[350px] shadow-xl border rounded-2xl">
                     <CardHeader>
                         <CardTitle className="text-center text-2xl font-semibold">
                             Welcome Back
@@ -95,7 +100,7 @@ const Login = () => {
                     </CardContent>
 
                     <CardFooter className="flex flex-col gap-3">
-                        <Button className="w-full cursor-pointer">Sign In</Button>
+                        <Button disabled={loading} className="w-full cursor-pointer">{loading ? <span className="loader"></span> : "Sign In"}</Button>
                         <p className="text-sm text-muted-foreground text-center">
                             Don’t have an account? <Link to="/signup" className="text-blue-600 hover:underline">Sign up</Link>
                         </p>

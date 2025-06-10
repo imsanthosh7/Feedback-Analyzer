@@ -26,13 +26,15 @@ const Signup = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setpassword] = useState('');
-
+  const [loading, setLoading] = useState(false);
 
 
 
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
+    setLoading(true);
 
     try {
 
@@ -47,8 +49,10 @@ const Signup = () => {
         setName('');
         setEmail('');
         setpassword('');
+        setLoading(false);
       } else {
         toast.error(data.message)
+        setLoading(false);
       }
 
     } catch (error) {
@@ -65,7 +69,7 @@ const Signup = () => {
     <div className="w-screen h-screen flex items-center justify-center bg-gray-100">
       <Toaster richColors />
       <form onSubmit={handleSubmit}>
-        <Card className="w-[360px] shadow-xl border rounded-xl">
+        <Card className="md:w-[360px] w-[350px]  shadow-xl border rounded-xl">
           <CardHeader>
             <CardTitle className="text-center text-2xl font-semibold">
               Create Account
@@ -117,7 +121,7 @@ const Signup = () => {
           </CardContent>
 
           <CardFooter className="flex flex-col gap-3">
-            <Button className="w-full cursor-pointer">Sign Up</Button>
+            <Button disabled={loading} className="w-full cursor-pointer">{loading ? <span className="loader"></span> : "Sign Up"}</Button>
             <p className="text-sm text-muted-foreground text-center">
               Already have an account? <Link to="/login" className="text-blue-600 hover:underline">Sign in</Link>
             </p>

@@ -15,7 +15,7 @@ const PORT = 4000;
 
 connectDB()
 
-const allowedOrigins = ['https://feedback-analyzer-client.onrender.com', 'https://feedback-analyzer-admin.onrender.com']
+const allowedOrigins = ['https://feedback-analyzer-client.onrender.com', 'https://feedback-analyzer-admin.onrender.com','http://localhost:5174','http://localhost:5173']
 
 app.use(express.json());
 app.use(cookieParser());
